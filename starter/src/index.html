@@ -3,7 +3,7 @@
 
 <head>
   <title>Portfolio</title>
-  <link rel="stylesheet" href="../dist/main.css">
+  <link rel="stylesheet" href="dist/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +14,62 @@
 
 <body id="body">
   <header class="header">
+    <nav>
+      <div class="header__logo" ></div>
+      <button class="header__burger" aria-expanded="false" aria-controls="headerNav">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="visually-hiden">Menu</span>
+
+      </button>
+      <ul class="header__nav-list" id="headerNav">
+        <li class="header__list-item"> <a href="#projects">projects</a></li>
+        <li class="header__list-item"> <a href="#skills">skills</a></li>
+        <li class="header__list-item"> <a href="#resume">resume</a></li>
+        <li class="header__list-item"> <a href="#contact">contact</a></li>
+      </ul>
+    </nav>
   </header>
   <main id="main">
     <section id="bio" class="bio">
+      <div class="bio__content"> 
+        <div class="bio__image-container">
+          <img src="img/profilepicture .jpg" alt="Your Profile Picture" class="bio__image">
+        </div>
+        <h1 class=" bio__heading">Bertol Kensese</h1>
+        <p class="bio__text">Recent CS  graduate with strong knowledge of algorithms knowledge</p>
+      </div>
     </section>
     <section id="latest-projects" class="latest-projects">
+      <h2 class="latest-projects__heading">Latest projects</h2>
+      <div class="latest-projects__grid">
+        <div class="latest-projects__card">
+          <img src="img/convolution.jpg" alt="Placeholder Project 1" class="latest-projects__card-image">
+          <div class="latest-projects__card-content">
+            <h3 class="latest-projects__card-title">Filtering and Convolutions</h3>
+            <p class="latest-projects__card-description"> Implemented fundamental image filtering techniques including box blur, Gaussian smoothing, and edge detection using Sobel filters. You also explored creating hybrid images by manipulating image frequencies.</p>
+          </div>
+        </div>
+        <div class="latest-projects__card">
+          <img src="img/opticalflow.jpg" alt="Placeholder Project 1" class="latest-projects__card-image">
+          <div class="latest-projects__card-content">
+            <h3 class="latest-projects__card-title">Optical Flow</h3>
+            <p class="latest-projects__card-description">Implemented the Lucas-Kanade optical flow algorithm by building integral images for efficient box filtering and calculating time-structure matrices to capture spatial and temporal gradients. The project culminates in estimating pixel velocities between image frames and visualizing the optical flow.</p>
+          </div>
+        </div>
+        <div class="latest-projects__card">
+          <img src="img/neuralnetwork .jpg" alt="Placeholder Project 1" class="latest-projects__card-image">
+          <div class="latest-projects__card-content">
+            <h3 class="latest-projects__card-title">Neural Networks and Machine Learning</h3>
+            <p class="latest-projects__card-description">Implemented fundamental neural network components in C, including activation functions, gradient calculations, forward/backward propagation, and weight updates. Trained and evaluated models on MNIST and CIFAR datasets, experimenting with hyperparameters to understand their impact on performance.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="footer">
+    <p class="footer__copyright">&copy; Bertol Kensese 2025</p>
   </footer>
 </body>
 

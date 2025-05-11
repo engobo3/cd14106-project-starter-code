@@ -1,0 +1,76 @@
+@use '../utils/variables' as var; // Import variables with namespace
+@use '../utils/mixins' as mix;    // Import mixins with namespace
+
+.latest-projects {
+  padding: var.$spacing-unit * 4 var.$spacing-unit;
+  text-align: center;
+
+  @include mix.respond-to(medium) {
+    padding: var.$spacing-unit * 6 var.$spacing-unit * 2;
+    text-align: left;
+  }
+
+  @include mix.respond-to(large) {
+    padding: var.$spacing-unit * 8 var.$spacing-unit * 4;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    margin-bottom: var.$spacing-unit * 2;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // Single column on small screens
+    gap: var.$spacing-unit * 2;
+
+    @include mix.respond-to(medium) {
+      grid-template-columns: repeat(2, 1fr); // Two columns on medium screens
+    }
+
+    @include mix.respond-to(large) {
+      grid-template-columns: repeat(3, 1fr); // Three columns on large screens
+    }
+  }
+
+  &__card {
+    background-color: var.$secondary-color;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__card-image {
+    width: 100%;
+    display: block; // Prevent extra space below image
+    aspect-ratio: 16 / 9; // Maintain a consistent aspect ratio
+    object-fit: cover;
+  }
+
+  &__card-content {
+    padding: var.$spacing-unit;
+  }
+
+  &__card-title {
+    font-size: 1.2rem;
+    margin-bottom: var.$spacing-unit / 2;
+  }
+
+  &__card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: lighten(var.$primary-color, 30%);
+  }
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; // Added box-shadow transition
+
+  &:hover {
+    transform: translateY(-5px) scale(1.02); // Added scale
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); // Slightly stronger shadow on hover
+  }
+}

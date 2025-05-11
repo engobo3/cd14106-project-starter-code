@@ -1,0 +1,12 @@
+@use '../utils/variables' as var;
+
+.footer {
+  background-color: var.$primary-color;
+  color: var.$secondary-color;
+  padding: var.$spacing-unit * 2 var.$spacing-unit;
+  text-align: center;
+  &__copyright {
+    font-size: 0.9rem;
+  }
+}
+

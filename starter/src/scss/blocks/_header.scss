@@ -1,0 +1,108 @@
+@use '../utils/variables'as var; // Import variables with namespace
+@use '../utils/mixins' as mix; // Import mixins with namespace
+
+.header {
+  background-color: var.$secondary-color;
+  padding: var.$spacing-unit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; // Ensure it stays on top
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__burger {
+    display: none; // Hide by default on larger screens
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    &-line {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: var.$primary-color;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    &.open {
+      transform: translateY(0);
+    }
+  }
+
+  &__list-item {
+    margin-left: var.$spacing-unit * 2;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      color: var.$primary-color;
+      padding: 0.5rem;
+      display: block;
+
+      &:hover {
+        color: var.$accent-color;
+      }
+    }
+  }
+
+  // Responsive Styles
+  @include mix.respond-to(small) {
+    padding: var.$spacing-unit / 2;
+
+    nav {
+      position: relative;
+    }
+
+    &__burger {
+      display: block;
+    }
+
+    &__nav-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var.$secondary-color;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      transform: translateY(-100%); // Hide off-screen initially
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    &__list-item {
+      margin-left: 0;
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        padding: var.$spacing-unit;
+      }
+    }
+  }
+}

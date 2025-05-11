@@ -1,0 +1,51 @@
+// scss\base\_base.scss
+
+@use '../utils/variables' as var; // Move to the top
+@use '../utils/mixins' as mix;    // Move to the top
+
+/* Simple Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var.$primary-font; // Use the variable with the namespace
+  font-size: var.$base-font-size; // Use the variable with the namespace
+  color: var.$text-color;         // Use the variable with the namespace
+  background-color: var.$background-color; // Use the variable with the namespace
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  margin-top: var.$spacing-unit * 2; // Use the variable with the namespace
+  margin-bottom: var.$spacing-unit;   // Use the variable with the namespace
+}
+
+a {
+  color: var.$accent-color; // Use the variable with the namespace
+  text-decoration: none;
+}
+
+.visually-hiden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
